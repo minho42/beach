@@ -1,0 +1,16 @@
+{
+  "name": "beach-ranking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --ignore ./frontend/ index.js"
+  },
+  "keywords": [],
+  "author": "Min ho Kim <minho42@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer": "^13.6.0"
+  }
+}
