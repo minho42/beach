@@ -4,12 +4,10 @@ export function Search({ setSearchText }) {
   const searchInput = process.browser && document.querySelector("input");
 
   const handleChange = (e) => {
-    if (e.target.value.trim().length === 0) return;
-
     setSearchText(e.target.value.trim());
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = () => {
     searchInput.focus();
     searchInput.value = "";
     setSearchText("");
