@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="description" content="Best beaches in NSW" />
+        <meta name="description" content="Best beaches in Sydney, NSW" />
 
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"

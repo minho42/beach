@@ -55,7 +55,7 @@ const makeWeightedRankingFile = (scrapedData) => {
     scrapedData.forEach((row) => {
       const R = parseFloat(row.stars);
       const v = parseInt(row.reviews.replace(/,/g, ""));
-      const m = 20;
+      const m = 1;
       // "C": 'averageStars' not used and hardcoded
       // average is quite high smaller reviews of same stars rank higher from 4.6 stars
       // therefore need to lower the average
@@ -74,7 +74,7 @@ const makeWeightedRankingFile = (scrapedData) => {
 const getGoogleReview = async (name) => {
   console.log(`getGoogleReview: [${name}]`);
   const url = `https://www.google.com.au/search?q=${name.replace(" ", "+")}`;
-  const imageUrl = `${url}&source=lnms&tbm=isch`;
+  const imageUrl = `${url}&tbm=isch`;
   console.log(url);
 
   const browser = await puppeteer.launch({
