@@ -2,8 +2,8 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
   const url = `https://www.google.com.au/search?q=${name.replace(" ", "+")}`;
   const imageUrl = `${url}&tbm=isch`;
   return (
-    <section className="flex justify-center w-full group">
-      <div className="flex flex-col w-full items-center bg-white rounded-xl px-6 pt-4 pb-6 space-x-3 space-y-2 border border-gray-300 hover:shadow-lg ">
+    <section className="flex justify-center w-full">
+      <div className="flex flex-col w-full items-center bg-white rounded-xl px-6 pt-4 pb-6 space-x-3 space-y-2 border border-gray-300">
         <div className="relative rounded-xl overflow-hidden">
           <a
             href={imageUrl}
@@ -13,10 +13,7 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
             alt={`Images for ${name}`}
             title={`Images for ${name}`}
           >
-            <img
-              src={imageSrc}
-              className="rounded-xl w-72 h-auto object-contain transform transition duration-1000 ease-in-out group-hover:scale-110"
-            />
+            <img src={imageSrc} className="w-72 h-auto object-contain" />
           </a>
           <div className="absolute top-0.5 left-1 text-5xl font-bold text-white text-shadow">{index + 1}</div>
         </div>
