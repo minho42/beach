@@ -11,12 +11,13 @@ export function BeachList() {
 
   useEffect(() => {
     const sorted = [...rankingData].sort((a, b) => {
-      if (!sortOption || sortOption === "default") {
-        return parseFloat(b.ranking) - parseFloat(a.ranking);
-      } else if (sortOption === "stars") {
+      if (sortOption === "stars") {
         return parseFloat(b.stars) - parseFloat(a.stars);
       } else if (sortOption === "reviews") {
         return parseInt(b.reviews.replace(/,/g, "")) - parseInt(a.reviews.replace(/,/g, ""));
+      } else {
+        // default
+        return parseFloat(b.ranking) - parseFloat(a.ranking);
       }
     });
 
@@ -29,6 +30,10 @@ export function BeachList() {
     });
     setData(filtered);
   }, [searchText, sortOption]);
+
+  if (!setData || setData.length === 0) {
+    return <div className="text-center">Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
