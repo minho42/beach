@@ -6,7 +6,7 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
   return (
     <section className="flex justify-center w-full">
       <div className="flex flex-col w-full items-center bg-white rounded-xl px-6 pt-4 pb-6 space-x-3 space-y-2 border border-transparent shadow hover:shadow-lg ">
-        <div className="relative rounded-xl  overflow-hidden">
+        <div className="relative rounded-xl overflow-hidden">
           <a
             href={imageUrl}
             target="_blank"
