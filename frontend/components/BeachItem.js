@@ -15,7 +15,7 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
           >
             <img
               src={imageSrc}
-              className="w-72 h-auto object-contain transform transition duration-1000 ease-in-out group-hover:scale-110"
+              className="rounded-xl w-72 h-auto object-contain transform transition duration-1000 ease-in-out group-hover:scale-110"
             />
           </a>
           <div className="absolute top-0.5 left-1 text-5xl font-bold text-white text-shadow">{index + 1}</div>
