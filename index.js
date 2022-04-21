@@ -63,7 +63,7 @@ const makeWeightedRankingFile = (scrapedData) => {
       row.ranking = getWeightedRanking(R, v, m, C);
     });
 
-    console.log(scrapedData);
+    console.log(scrapedData?.length);
 
     fs.writeFileSync(path.resolve(__dirname, RANKING_FILE), JSON.stringify(scrapedData, null, 4), "utf-8");
   } catch (error) {
@@ -103,7 +103,7 @@ const getGoogleReview = async (name) => {
     const imageSrc = await page.evaluate(() => {
       return document.querySelector(".islrc img").src;
     });
-    console.log(imageSrc);
+    console.log(imageSrc.slice(0, 20));
 
     return { ...result, imageSrc };
   } catch (error) {
