@@ -1,11 +1,9 @@
-import { SortDescendingIcon } from "@heroicons/react/outline";
 import { ChatIcon, ThumbUpIcon, ChartSquareBarIcon } from "@heroicons/react/outline";
 
 export function Sort({ sortOption, setSortOption }) {
   return (
     <div className="flex items-center justify-center space-x-2">
-      <SortDescendingIcon className="w-6 h-6 text-gray-700" />
-      Sort by
+      <div className="">Sort by</div>
       <button
         onClick={() => setSortOption("default")}
         className={`${
