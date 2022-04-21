@@ -1,7 +1,7 @@
 import { SearchIcon, XIcon } from "@heroicons/react/outline";
 
 export function Search({ setSearchText }) {
-  const searchInput = document.querySelector("input");
+  const searchInput = process.browser && document.querySelector("input");
 
   const handleChange = (e) => {
     if (e.target.value.trim().length === 0) return;
