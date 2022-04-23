@@ -1,7 +1,6 @@
-# beach
+# Beach ⛱
 
 [https://sydbeach.netlify.app](https://sydbeach.netlify.app)
-## Beaches in Sydney ranked by Google reviews
 
 Scrapes Google reviews for selected beaches in Sydney, NSW, without using Google Maps API
 
@@ -22,7 +21,6 @@ Scrapes Google reviews for selected beaches in Sydney, NSW, without using Google
         "imageSrc": "data:image/jpeg;base64,/9j.../Z",
         "ranking": 4.599739873652917
     },
-    ...
 ]
 ```
 
