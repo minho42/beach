@@ -42,17 +42,6 @@ export function Footer() {
       <div className="hover:underline hover:underline-offset-1">
         <Link href="/about">About</Link>
       </div>
-
-      <div className="text-black">
-        <a
-          className="flex items-center justify-center bg-amber-300 rounded-full shadow-lg px-6 py-2"
-          href="https://www.buymeacoffee.com/minhokim"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Buy me a <span className="text-3xl">🥤</span>
-        </a>
-      </div>
     </footer>
   );
 }
