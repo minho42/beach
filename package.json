@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon --ignore ./frontend/ index.js"
+    "scrape": "node index.js",
+    "scrapeDev": "nodemon --ignore ./frontend/ index.js"
   },
   "keywords": [],
   "author": "Min ho Kim <minho42@gmail.com>",
