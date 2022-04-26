@@ -8,9 +8,9 @@ Scrapes Google reviews for selected beaches in Sydney, NSW, without using Google
 
 [beach_list.txt](https://github.com/minho42/beach/blob/master/beach_list.txt)
 
-### Ranking file
+### Rating file
 
-[frontend/ranking.json](https://github.com/minho42/beach/blob/master/frontend/ranking.json)
+[frontend/rating.json](https://github.com/minho42/beach/blob/master/frontend/rating.json)
 
 ```json
 [
@@ -18,13 +18,7 @@ Scrapes Google reviews for selected beaches in Sydney, NSW, without using Google
         "name": "Balmoral beach",
         "stars": "4.6",
         "reviews": "2,690",
-        "imageSrc": "data:image/jpeg;base64,/9j.../Z",
-        "ranking": 4.599739873652917
+        "imageSrc": "data:image/jpeg;base64,/9j.../Z"
     },
 ]
 ```
-
-## Ranking formula
-
-Referenced from https://www.quora.com/How-does-IMDbs-rating-system-work
-and tweaked a bit

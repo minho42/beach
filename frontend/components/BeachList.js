@@ -2,22 +2,23 @@ import { useState, useEffect } from "react";
 import { BeachItem } from "./BeachItem";
 import { Sort } from "./Sort";
 import { Search } from "./Search";
-import rankingData from "../ranking.json";
+import ratingData from "../rating.json";
 
 export function BeachList() {
   const [data, setData] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [sortOption, setSortOption] = useState("default");
+  const [sortOption, setSortOption] = useState("reviews");
 
   useEffect(() => {
-    const sorted = [...rankingData].sort((a, b) => {
+    const sorted = [...ratingData].sort((a, b) => {
       if (sortOption === "stars") {
-        return parseFloat(b.stars) - parseFloat(a.stars);
-      } else if (sortOption === "reviews") {
-        return parseInt(b.reviews.replace(/,/g, "")) - parseInt(a.reviews.replace(/,/g, ""));
+        if (parseFloat(b.stars) === parseFloat(a.stars)) {
+          return parseInt(b.reviews.replace(/,/g, "")) - parseInt(a.reviews.replace(/,/g, ""));
+        } else {
+          return parseFloat(b.stars) - parseFloat(a.stars);
+        }
       } else {
-        // default
-        return parseFloat(b.ranking) - parseFloat(a.ranking);
+        return parseInt(b.reviews.replace(/,/g, "")) - parseInt(a.reviews.replace(/,/g, ""));
       }
     });
 

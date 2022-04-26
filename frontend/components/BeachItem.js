@@ -1,4 +1,4 @@
-export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, index }) {
+export function BeachItem({ data: { name, stars, reviews, imageSrc }, index }) {
   const url = `https://www.google.com.au/search?q=${name.replace(" ", "+")}`;
   const imageUrl = `${url}&tbm=isch`;
   return (
@@ -34,7 +34,6 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
             <div>·</div>
             <div className="text-gray-600">{reviews} reviews</div>
           </div>
-          {/* <div className="">{ranking}</div> */}
         </div>
       </div>
     </section>

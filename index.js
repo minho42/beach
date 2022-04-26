@@ -3,7 +3,7 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 
 const RAW_DATA_FILE = "./beach_list.txt";
-const RANKING_FILE = "./frontend/ranking.json";
+const RATING_FILE = "./frontend/rating.json";
 
 const getBeachListFromFile = () => {
   console.log("getBeachListFromFile");
@@ -16,56 +16,10 @@ const getBeachListFromFile = () => {
   }
 };
 
-const getWeightedRanking = (R, v, m, C) => {
-  // https://www.quora.com/How-does-IMDbs-rating-system-work
-  // IMDB formula, true 'Bayesian estimate'
-  // weighted rating (WR) = (v ÷ (v+m)) × R + (m ÷ (v+m)) × C
-  // R = average for the movie (mean) = (Rating)
-  // v = number of votes for the movie = (votes)
-  // m = minimum votes required to be listed in the Top 250 (currently 25000)
-  // C = the mean vote across the whole report (currently 7.0)
-  //
-  // In this case:
-  // R = average for the beach (mean) = (Rating)
-  // v = number of reviews for the beach = (reviews)
-  // m = minimum reviews required to be listed
-  // C = the mean review across the whole reviews
-  return (v / (v + m)) * R + (m / (v + m)) * C;
-};
-
-const makeWeightedRankingFile = (scrapedData) => {
-  console.log("makeWeightedRankingFile");
-
-  let totalReviewCount = 0;
-  let averageStars = 0;
-  let stars_x_reviews = 0;
-
-  scrapedData.forEach((row) => {
-    const reviewsInNumber = parseInt(row.reviews.replace(/,/g, ""));
-    totalReviewCount += reviewsInNumber;
-    stars_x_reviews += parseFloat(row.stars) * reviewsInNumber;
-  });
-
-  averageStars = stars_x_reviews / totalReviewCount;
-  // console.log(`averageStars: ${averageStars}`);
-  // console.log(`stars_x_reviews: ${stars_x_reviews}`);
-  // console.log(`totalReviewCount: ${totalReviewCount}`);
-
+const makeRatingFile = (scrapedData) => {
+  console.log("makeRatingFile");
   try {
-    scrapedData.forEach((row) => {
-      const R = parseFloat(row.stars);
-      const v = parseInt(row.reviews.replace(/,/g, ""));
-      const m = 1;
-      // "C": 'averageStars' not used and hardcoded
-      // average is quite high smaller reviews of same stars rank higher from 4.6 stars
-      // therefore need to lower the average
-      const C = 3.9;
-      row.ranking = getWeightedRanking(R, v, m, C);
-    });
-
-    console.log(scrapedData?.length);
-
-    fs.writeFileSync(path.resolve(__dirname, RANKING_FILE), JSON.stringify(scrapedData, null, 4), "utf-8");
+    fs.writeFileSync(path.resolve(__dirname, RATING_FILE), JSON.stringify(scrapedData, null, 4), "utf-8");
   } catch (error) {
     console.error(error);
   }
@@ -134,7 +88,7 @@ const scrapeStarsAndReviews = async (beachList) => {
 const main = async () => {
   const beachList = getBeachListFromFile();
   const scrapedData = await scrapeStarsAndReviews(beachList);
-  makeWeightedRankingFile(scrapedData);
+  makeRatingFile(scrapedData);
 };
 
 main();
