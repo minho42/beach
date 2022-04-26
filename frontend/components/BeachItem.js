@@ -13,7 +13,7 @@ export function BeachItem({ data: { name, stars, reviews, ranking, imageSrc }, i
             alt={`Images for ${name}`}
             title={`Images for ${name}`}
           >
-            <img src={imageSrc} className="w-72 h-auto object-contain" />
+            <img src={imageSrc} className="w-72 h-52 object-cover" />
           </a>
           <div className="absolute top-0.5 left-1 text-5xl font-bold text-white text-shadow">{index + 1}</div>
         </div>
