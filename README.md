@@ -1,7 +1,5 @@
 # Beach ⛱
 
-[https://sydbeach.netlify.app](https://sydbeach.netlify.app)
-
 Scrapes Google reviews for selected beaches in Sydney, NSW, without using Google Maps API
 
 ### Raw data
