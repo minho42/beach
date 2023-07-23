@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex justify-center text-center">
           <a
             className="hover:underline hover:underline-offset-1"
-            href="https://twitter.com/minhokim42"
+            href="https://twitter.com/minho42_"
             target="_blank"
             rel="noopener noreferrer"
           >
